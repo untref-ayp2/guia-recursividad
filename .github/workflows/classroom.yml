@@ -1,0 +1,200 @@
+name: Autograding Tests
+'on':
+- push
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: TestBusquedaBinaria
+      id: testbusquedabinaria
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestBusquedaBinaria
+        setup-command: ''
+        command: go test ./... -run ^TestBusquedaBinaria$
+        timeout: 10
+        max-score: 1
+    - name: TestBusquedaTernariaRecursiva
+      id: testbusquedaternariarecursiva
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestBusquedaTernariaRecursiva
+        setup-command: ''
+        command: go test ./... -run ^TestBusquedaTernariaRecursiva$
+        timeout: 10
+        max-score: 1
+    - name: TestPico
+      id: testpico
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestPico
+        setup-command: ''
+        command: go test ./... -run ^TestPico$
+        timeout: 10
+        max-score: 1
+    - name: TestSubsecuenciaSumaMaxima
+      id: testsubsecuenciasumamaxima
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestSubsecuenciaSumaMaxima
+        setup-command: ''
+        command: go test ./... -run ^TestSubsecuenciaSumaMaxima$
+        timeout: 10
+        max-score: 1
+    - name: TestEsArreloMagico
+      id: testesarrelomagico
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestEsArreloMagico
+        setup-command: ''
+        command: go test ./... -run ^TestEsArreloMagico$
+        timeout: 10
+        max-score: 1
+    - name: TestSuma
+      id: testsuma
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestSuma
+        setup-command: ''
+        command: go test ./... -run ^TestSuma$
+        timeout: 10
+        max-score: 1
+    - name: TestFactorial
+      id: testfactorial
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestFactorial
+        setup-command: ''
+        command: go test ./... -run ^TestFactorial$
+        timeout: 10
+        max-score: 1
+    - name: TestCantidadDeUnos
+      id: testcantidaddeunos
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestCantidadDeUnos
+        setup-command: ''
+        command: go test ./... -run ^TestCantidadDeUnos$
+        timeout: 10
+        max-score: 1
+    - name: TestInvertir
+      id: testinvertir
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestInvertir
+        setup-command: ''
+        command: go test ./... -run ^TestInvertir$
+        timeout: 10
+        max-score: 1
+    - name: TestInvertirCola
+      id: testinvertircola
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestInvertirCola
+        setup-command: ''
+        command: go test ./... -run ^TestInvertirCola$
+        timeout: 10
+        max-score: 1
+    - name: TestMCD
+      id: testmcd
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestMCD
+        setup-command: ''
+        command: go test ./... -run ^TestMCD$
+        timeout: 10
+        max-score: 1
+    - name: TestMultiplicar
+      id: testmultiplicar
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestMultiplicar
+        setup-command: ''
+        command: go test ./... -run ^TestMultiplicar$
+        timeout: 10
+        max-score: 1
+    - name: TestDivisionEntera
+      id: testdivisionentera
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestDivisionEntera
+        setup-command: ''
+        command: go test ./... -run ^TestDivisionEntera$
+        timeout: 10
+        max-score: 1
+    - name: TestSumaArray
+      id: testsumaarray
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestSumaArray
+        setup-command: ''
+        command: go test ./... -run ^TestSumaArray$
+        timeout: 10
+        max-score: 1
+    - name: TestDecimalABinario
+      id: testdecimalabinario
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestDecimalABinario
+        setup-command: ''
+        command: go test ./... -run ^TestDecimalABinario$
+        timeout: 10
+        max-score: 1
+    - name: TestEsPotencia
+      id: testespotencia
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestEsPotencia
+        setup-command: ''
+        command: go test ./... -run ^TestEsPotencia$
+        timeout: 10
+        max-score: 1
+    - name: TestFibonacci
+      id: testfibonacci
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestFibonacci
+        setup-command: ''
+        command: go test ./... -run ^TestFibonacci$
+        timeout: 10
+        max-score: 1
+    - name: TestPascal
+      id: testpascal
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: TestPascal
+        setup-command: ''
+        command: go test ./... -run ^TestPascal$
+        timeout: 10
+        max-score: 1
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        TESTBUSQUEDABINARIA_RESULTS: ${{steps.testbusquedabinaria.outputs.result}}
+        TESTBUSQUEDATERNARIARECURSIVA_RESULTS: ${{steps.testbusquedaternariarecursiva.outputs.result}}
+        TESTPICO_RESULTS: ${{steps.testpico.outputs.result}}
+        TESTSUBSECUENCIASUMAMAXIMA_RESULTS: ${{steps.testsubsecuenciasumamaxima.outputs.result}}
+        TESTESARRELOMAGICO_RESULTS: ${{steps.testesarrelomagico.outputs.result}}
+        TESTSUMA_RESULTS: ${{steps.testsuma.outputs.result}}
+        TESTFACTORIAL_RESULTS: ${{steps.testfactorial.outputs.result}}
+        TESTCANTIDADDEUNOS_RESULTS: ${{steps.testcantidaddeunos.outputs.result}}
+        TESTINVERTIR_RESULTS: ${{steps.testinvertir.outputs.result}}
+        TESTINVERTIRCOLA_RESULTS: ${{steps.testinvertircola.outputs.result}}
+        TESTMCD_RESULTS: ${{steps.testmcd.outputs.result}}
+        TESTMULTIPLICAR_RESULTS: ${{steps.testmultiplicar.outputs.result}}
+        TESTDIVISIONENTERA_RESULTS: ${{steps.testdivisionentera.outputs.result}}
+        TESTSUMAARRAY_RESULTS: ${{steps.testsumaarray.outputs.result}}
+        TESTDECIMALABINARIO_RESULTS: ${{steps.testdecimalabinario.outputs.result}}
+        TESTESPOTENCIA_RESULTS: ${{steps.testespotencia.outputs.result}}
+        TESTFIBONACCI_RESULTS: ${{steps.testfibonacci.outputs.result}}
+        TESTPASCAL_RESULTS: ${{steps.testpascal.outputs.result}}
+      with:
+        runners: testbusquedabinaria,testbusquedaternariarecursiva,testpico,testsubsecuenciasumamaxima,testesarrelomagico,testsuma,testfactorial,testcantidaddeunos,testinvertir,testinvertircola,testmcd,testmultiplicar,testdivisionentera,testsumaarray,testdecimalabinario,testespotencia,testfibonacci,testpascal
