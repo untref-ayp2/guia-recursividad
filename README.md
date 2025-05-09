@@ -79,4 +79,4 @@
 
 4. Resolver el problema de la subsecuencia de suma máxima aplicando la técnica de División y Conquista.
 
-5. Un arreglo es mágico cuando `a[i] = i` para algún `i` entre `0` y `n-1`, siendo `n` el tamaño del arreglo. Los datos están ordenados en forma ascendente. Resolver en $O(\log{n})$. Es una variante de la busqueda binaria.
+5. Un arreglo es mágico cuando `a[i] = i` para algún `i` entre `0` y `n-1`, siendo `n` el tamaño del arreglo. Los datos están ordenados en forma ascendente y no hay elementos repetidos. Resolver en $O(\log{n})$. Es una variante de la busqueda binaria.
